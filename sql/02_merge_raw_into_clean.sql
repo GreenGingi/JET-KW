@@ -40,7 +40,7 @@ USING (
 
 ON t.comic_num = s.comic_num
 
-WHEN MATCHED THEN
+WHEN MATCHED THEN -- handles cases where the row already exists
   UPDATE SET
     title = s.title,
     safe_title = s.safe_title,
@@ -54,7 +54,7 @@ WHEN MATCHED THEN
     month = s.month,
     day = s.day,
     row_update = s.loaded_at
-WHEN NOT MATCHED THEN
+WHEN NOT MATCHED THEN -- handles cases where the row does not exist yet
   INSERT (
     comic_num, title, safe_title, alt, transcript, img, link, news,
     post_date, year, month, day, row_update
