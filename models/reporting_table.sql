@@ -2,7 +2,7 @@
 
 with base as (
   select *
-  from {{ source('clean_xkcd', 'comics') }}
+  from {{ ref('clean_table') }}
 ),
 
 -- Deterministic pseudo-random numbers derived from comic_num
