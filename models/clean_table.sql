@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with deduped as (
   select
@@ -32,4 +32,4 @@ parsed as (
   from deduped
 )
 
-select * from parsed;
+select * from parsed
