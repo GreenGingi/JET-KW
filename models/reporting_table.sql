@@ -47,4 +47,4 @@ final as (
   join rng r using (comic_num)
 )
 
-select * from final;
+select * from final
