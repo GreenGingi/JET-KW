@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw_xkcd
+    database: "{{ target.project }}"
+    schema: raw_xkcd
+    tables:
+      - name: comics_json
+        description: "Raw XKCD JSON payloads ingested from the XKCD JSON endpoint."
+        columns:
+          - name: ingested_at
+            tests: [not_null]
+          - name: source
+            tests: [not_null]
+          - name: payload
+            tests: [not_null]
